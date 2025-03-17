@@ -1,6 +1,6 @@
-export const addString = (val: string): number => {
-    if (val === "") {
+export const addString = (values: string): number => {
+    if (values === "") {
         return 0
     }
-    return Number(val)
+    return values.split(",").reduce((add, num) => add + Number(num), 0)
 } 
