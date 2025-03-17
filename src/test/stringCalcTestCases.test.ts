@@ -22,4 +22,8 @@ describe("String Calculator Test Cases", () => {
     expect(addString("1\n2,3")).toBe(6);
   });
 
+  test("returns sum when multiple numbers given, and also supporting different delimiters", () => {
+    expect(addString("//;\n1;2")).toBe(3);
+  });
+
 })
