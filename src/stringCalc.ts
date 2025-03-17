@@ -1,3 +1,6 @@
 export const addString = (val: string): number => {
-    return 0
+    if (val === "") {
+        return 0
+    }
+    return Number(val)
 } 
