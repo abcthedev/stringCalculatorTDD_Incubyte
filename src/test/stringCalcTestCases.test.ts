@@ -18,7 +18,7 @@ describe("String Calculator Test Cases", () => {
     expect(addString("1,2,3,4")).toBe(10);
   });
 
-  test("returns sum when multiple numbers given along with new line as delimeter", () => {
+  test("returns sum when multiple numbers given along with new line as delimiter", () => {
     expect(addString("1\n2,3")).toBe(6);
   });
 
