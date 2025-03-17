@@ -6,4 +6,8 @@ describe("String Calculator Test Cases", () => {
     expect(addString("")).toBe(0);
   });
 
+  test("returns the same number when one number is given", () => {
+    expect(addString("5")).toBe(5);
+  });
+
 })
