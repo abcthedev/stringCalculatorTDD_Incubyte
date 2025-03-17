@@ -10,4 +10,8 @@ describe("String Calculator Test Cases", () => {
     expect(addString("5")).toBe(5);
   });
 
+  test("return sum when two numbers are given", () => {
+    expect(addString("3, 5")).toBe(8);
+  });
+
 })
