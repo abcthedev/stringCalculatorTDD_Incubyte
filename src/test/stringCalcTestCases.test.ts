@@ -14,4 +14,9 @@ describe("String Calculator Test Cases", () => {
     expect(addString("3, 5")).toBe(8);
   });
 
+  test("returns sum when multiple numbers are given", () => {
+    expect(addString("1,2,3,4")).toBe(10);
+  });
+
+
 })
