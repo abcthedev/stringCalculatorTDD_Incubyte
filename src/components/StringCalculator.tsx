@@ -5,10 +5,18 @@ import { addString } from "../stringCalc";
 const StringCalculator: React.FC = () => {
     const [val, setVal] = useState("");
     const [result, setResult] = useState<number | null>(null);
+    const [error, setError] = useState<string>("");
 
     const handleCalculate = () => {
-        setResult(addString(val));
+        try {
+            setResult(addString(val));
+            setError("");
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "An error occurred");
+            setResult(null);
+        }
     };
+
 
     return (
         <div>
@@ -27,6 +35,11 @@ const StringCalculator: React.FC = () => {
             {!!result && <div>
                 Result : {result}
             </div>}
+
+            {!!error && <div style={{ color: "red" }}>
+                {error}
+            </div>}
+
         </div>
     )
 }
