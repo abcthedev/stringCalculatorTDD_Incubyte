@@ -24,6 +24,11 @@ const StringCalculator: React.FC = () => {
             <Typography variant="h3" component="h1" sx={{ my: 4 }} color="primary">
                 String Calculator
             </Typography>
+
+            <Typography variant="h4" component="h3" sx={{ my: 4 }} color="primary">
+                Format to enter numbers <span style={{ fontWeight: "bold", color: "red" }}>//[delimiter]\n[numbers]</span>
+            </Typography>
+
             <div>
                 <TextField
                     multiline
