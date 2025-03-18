@@ -29,4 +29,9 @@ describe("String Calculator Test Cases", () => {
   test("returns an error for negative numbers", () => {
     expect(() => addString("1,-2,3,-4")).toThrow("Negative numbers not allowed: -2,-4");
   });
+
+  test("throws error for invalid values", () => {
+    expect(() => addString("1,4,t,t,h")).toThrow("Invalid number encountered: t");
+  });
+
 })
