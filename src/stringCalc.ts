@@ -1,18 +1,22 @@
 export const addString = (values: string): number => {
-    if (values === "") {
-        return 0
-    }
+    if (!values) return 0;
 
-    let delimiter = /[\n,]/;
+    let delimiterRegex = /[\n,]/;
 
     if (values.startsWith("//")) {
-        const parts = values.split("\n");
-        delimiter = new RegExp(parts[0].slice(2));
-        values = parts[1];
+        const [delimiterDefinition, numbersString] = values.split("\n", 2);
+        delimiterRegex = new RegExp(`[${delimiterDefinition.slice(2)}\n,]`);
+        values = numbersString;
     }
-    
-    const negatives = values.split(delimiter).filter((num) => Number(num) < 0);
+
+    const numbers = values.split(delimiterRegex).map((num) => {
+        const parsedNum = Number(num);
+        if (isNaN(parsedNum)) throw new Error(`Invalid number encountered: ${num}`);
+        return parsedNum;
+    });
+
+    const negatives = numbers.filter((num) => num < 0);
     if (negatives.length > 0) throw new Error(`Negative numbers not allowed: ${negatives.join(",")}`);
 
-    return values.split(delimiter).reduce((add, num) => add + Number(num), 0)
-} 
+    return numbers.reduce((sum, num) => sum + num, 0);
+};
