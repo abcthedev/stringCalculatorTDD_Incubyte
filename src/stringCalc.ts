@@ -1,11 +1,12 @@
 export const addString = (values: string): number => {
     if (!values) return 0;
 
-    let delimiterRegex = /[\n,]/;
+    let delimiterRegex = /[\\n,]/;
 
     if (values.startsWith("//")) {
-        const [delimiterDefinition, numbersString] = values.split("\n", 2);
-        delimiterRegex = new RegExp(`[${delimiterDefinition.slice(2)}\n,]`);
+        const [delimiterDefinition, numbersString] = values.split("\\n", 2);
+        delimiterRegex = new RegExp(`[${delimiterDefinition.slice(2)}\\n,]`);
+        console.log("NNE", numbersString, delimiterDefinition)
         values = numbersString;
     }
 
