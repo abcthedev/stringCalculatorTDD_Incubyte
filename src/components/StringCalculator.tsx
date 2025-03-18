@@ -5,8 +5,12 @@ const StringCalculator: React.FC = () => {
     return (
         <div>
             <div>String Calculator</div>
-            <div></div>
-            <div></div>
+            <div>
+                <input placeholder="Enter numbers..." />
+            </div>
+            <div>
+                <button>Calculate</button>
+            </div>
         </div>
     )
 }
