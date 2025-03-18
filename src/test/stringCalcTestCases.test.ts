@@ -26,4 +26,8 @@ describe("String Calculator Test Cases", () => {
     expect(addString("//;\n1;2")).toBe(3);
   });
 
+  test("returns an error for negative numbers", () => {
+    expect(() => addString("1,-2,3,-4")).toThrow("Negative numbers not allowed: -2,-4");
+  });
+
 })
